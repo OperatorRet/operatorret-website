@@ -1344,13 +1344,30 @@ body.lightbox-open{ overflow:hidden; }
     align-items:flex-start;
     gap:0.85rem;
     padding:1.15rem;
+    display:flex;
+  }
+
+  .main-nav li{
+    width:100%;
+    opacity:1 !important;
+    transform:none !important;
+    filter:none !important;
+    animation:none !important;
   }
 
   .main-nav a{
-    color:var(--white);
+    color:var(--white) !important;
     width:100%;
+    display:block;
     padding:0.72rem 0.8rem;
     font-size:1.02rem;
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.10);
+    border-radius:10px;
+  }
+
+  .main-nav a.social{
+    color:var(--white) !important;
   }
 
   .nav-toggle{

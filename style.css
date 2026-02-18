@@ -8,6 +8,12 @@
 /* Production fallback: keep background watermark visible even if style-foundation is stale */
 body::before{
   background-image:url("images/logo_short_white.png?v=20260218");
+  z-index:0;
+}
+
+body > *{
+  position:relative;
+  z-index:1;
 }
 
 /* ========== HEADER ========== */

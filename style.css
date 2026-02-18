@@ -1652,9 +1652,11 @@ a:focus{ outline:3px solid rgba(127,0,178,0.14); outline-offset:3px; border-radi
     white-space:nowrap;
     padding:0.56rem 0.72rem;
     font-size:0.95rem;
-    border:1px solid rgba(255,255,255,0.30);
-    background:linear-gradient(180deg, rgba(255,255,255,0.24), rgba(255,255,255,0.12));
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.14);
+    color:var(--white) !important;
+    border:1px solid rgba(255,255,255,0.38);
+    background:linear-gradient(180deg, rgba(255,255,255,0.42), rgba(255,255,255,0.26));
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 6px 16px rgba(0,0,0,0.2);
+    text-shadow:0 1px 2px rgba(0,0,0,0.35);
   }
 
   .site-header .nav-toggle:checked ~ .main-nav{

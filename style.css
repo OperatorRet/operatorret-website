@@ -388,7 +388,13 @@ body.page-contact .main-nav a[href="contact.html"]{
   .hero-combined .hero-grid{ grid-template-columns: 1fr; }
   .right-portrait{ order:2; }
   .left-stack{ order:1; padding:1rem 0; align-items:center; text-align:center; }
-  .logo-short{ max-height:140px; }
+  .logo-short{
+    width:min(86vw, 360px);
+    max-width:100%;
+    height:auto;
+    max-height:none;
+    object-fit:contain;
+  }
   .logo-long{ max-width:360px; }
   .about-text{ max-width:60ch; text-align:center; font-size:1.02rem; }
   .portrait-img{ max-height:420px; aspect-ratio:auto; }
@@ -1308,28 +1314,97 @@ body.lightbox-open{ overflow:hidden; }
 
 @media (max-width:720px){
   body{ overflow-x:hidden; }
-  .header-inner{ padding:0.6rem 1rem; position:relative; }
-  .main-nav{ position:fixed; inset:0 0 0 50%; transform:translateX(100%); transition:transform .28s ease; background:linear-gradient(180deg, rgba(7,7,9,0.98), rgba(7,7,9,0.98)); padding-top:6.5rem; z-index:80; max-height:100dvh; overflow-y:auto; -webkit-overflow-scrolling:touch; }
-  .main-nav ul{ flex-direction:column; gap:1.25rem; padding:1.25rem; }
-  .nav-toggle{ display:block; position:absolute; right:1rem; top:0.6rem; width:46px; height:42px; opacity:0; pointer-events:auto; z-index:81; }
-  .nav-toggle-label{ display:block; margin-left:auto; position:relative; z-index:82; }
-  .nav-toggle:checked ~ .main-nav{ transform:translateX(0%); left:0; right:0; }
+  .header-inner{
+    padding:0.45rem 0.9rem;
+    position:relative;
+    display:grid;
+    grid-template-columns: 1fr auto auto;
+    align-items:center;
+    gap:0.45rem;
+  }
 
-  .nav-toggle:checked + .nav-toggle-label span:nth-child(1){ transform:translateY(9px) rotate(45deg); }
-  .nav-toggle:checked + .nav-toggle-label span:nth-child(2){ opacity:0; transform: scale(0.6); }
-  .nav-toggle:checked + .nav-toggle-label span:nth-child(3){ transform:translateY(-9px) rotate(-45deg); }
+  .main-nav{
+    position:fixed;
+    top:0;
+    right:0;
+    bottom:0;
+    left:32%;
+    transform:translateX(100%);
+    transition:transform .28s ease;
+    background:linear-gradient(180deg, rgba(7,7,9,0.985), rgba(7,7,9,0.985));
+    padding-top:5.7rem;
+    z-index:90;
+    max-height:100dvh;
+    overflow-y:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+
+  .main-nav ul{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:0.85rem;
+    padding:1.15rem;
+  }
+
+  .main-nav a{
+    color:var(--white);
+    width:100%;
+    padding:0.72rem 0.8rem;
+    font-size:1.02rem;
+  }
+
+  .nav-toggle{
+    display:block;
+    position:absolute;
+    width:1px;
+    height:1px;
+    opacity:0;
+    pointer-events:none;
+  }
+
+  .nav-toggle-label{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:42px;
+    height:42px;
+    margin:0;
+    border-radius:10px;
+    border:1px solid rgba(255,255,255,0.14);
+    background:rgba(255,255,255,0.03);
+    position:relative;
+    z-index:92;
+  }
+
+  .nav-toggle-label span{
+    position:absolute;
+    width:24px;
+    height:2.5px;
+    margin:0;
+  }
+
+  .nav-toggle-label span:nth-child(1){ transform:translateY(-7px); }
+  .nav-toggle-label span:nth-child(2){ transform:translateY(0); }
+  .nav-toggle-label span:nth-child(3){ transform:translateY(7px); }
+
+  .nav-toggle:checked ~ .main-nav{ transform:translateX(0); }
+
+  .nav-toggle:checked + .nav-toggle-label span:nth-child(1){ transform:translateY(0) rotate(45deg); }
+  .nav-toggle:checked + .nav-toggle-label span:nth-child(2){ opacity:0; transform:scale(0.6); }
+  .nav-toggle:checked + .nav-toggle-label span:nth-child(3){ transform:translateY(0) rotate(-45deg); }
 
   .cards-grid{ grid-template-columns: 1fr; }
 
   /* Keep header logo reasonably sized on small screens */
-  .logo-img{
-    width:clamp(132px, 42vw, 180px);
-    height:auto;
-    max-width:none;
-    max-height:none;
-    object-fit:contain;
+  .logo-img{ max-height:40px; max-width:152px; width:auto; height:auto; }
+  .header-book{
+    display:inline-flex;
+    padding:0.45rem 0.68rem;
+    min-height:36px;
+    font-size:0.83rem;
+    white-space:nowrap;
+    z-index:91;
   }
-  .header-book{ display:none; }
 
   .main-legal{ padding-top:4.8rem; padding-bottom:3rem; }
   .legal-card{ padding:1rem; margin:0; }

@@ -23,6 +23,7 @@ body > footer{
   background: linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.15));
   border-bottom:1px solid rgba(255,255,255,0.02);
   backdrop-filter: blur(6px);
+  transition: transform .26s ease;
 }
 .header-inner{ display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:0.9rem 1rem; max-width:var(--max-width); margin:0 auto; }
 .brand{ display:inline-flex; align-items:center; flex-shrink:0; min-width:0; }
@@ -1585,6 +1586,7 @@ a:focus{ outline:3px solid rgba(127,0,178,0.14); outline-offset:3px; border-radi
   body.nav-open{ overflow:hidden; }
 
   .site-header{ z-index:160; }
+  .site-header.is-hidden{ transform:translateY(-110%); }
 
   .site-header .header-inner{
     min-height:58px;
@@ -1602,10 +1604,18 @@ a:focus{ outline:3px solid rgba(127,0,178,0.14); outline-offset:3px; border-radi
     font-size:0.78rem;
   }
 
-  .site-header .nav-toggle,
-  .site-header .nav-toggle-label{
-    top:0.45rem;
+  .site-header .nav-toggle{
+    top:50%;
     right:0.9rem;
+    transform:translateY(-50%);
+  }
+
+  .site-header .nav-toggle-label{
+    position:absolute;
+    top:50%;
+    right:0.9rem;
+    margin:0;
+    transform:translateY(-50%);
   }
 
   .site-header .main-nav{
@@ -1628,10 +1638,14 @@ a:focus{ outline:3px solid rgba(127,0,178,0.14); outline-offset:3px; border-radi
 
   .site-header .main-nav a,
   .site-header .main-nav a.social{
-    min-height:44px;
-    display:flex;
+    min-height:38px;
+    display:inline-flex;
+    width:auto;
+    max-width:100%;
     align-items:center;
     justify-content:flex-start;
+    padding:0.56rem 0.72rem;
+    font-size:0.95rem;
   }
 
   .site-header .nav-toggle:checked ~ .main-nav{

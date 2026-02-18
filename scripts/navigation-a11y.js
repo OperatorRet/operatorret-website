@@ -16,6 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const setExpandedState = () => {
       navToggle.setAttribute('aria-expanded', navToggle.checked ? 'true' : 'false');
       document.body.classList.toggle('nav-open', navToggle.checked);
+
+      if (navToggle.checked && siteHeader instanceof HTMLElement) {
+        siteHeader.classList.remove('is-hidden');
+      }
     };
 
     navToggle.checked = false;
@@ -29,6 +33,50 @@ document.addEventListener('DOMContentLoaded', () => {
 
       navToggle.checked = false;
       setExpandedState();
+    };
+
+    let lastScrollY = window.scrollY;
+    let scrollTicking = false;
+
+    const syncHeaderOnScroll = () => {
+      if (!(siteHeader instanceof HTMLElement)) {
+        return;
+      }
+
+      if (window.innerWidth > 720) {
+        siteHeader.classList.remove('is-hidden');
+        lastScrollY = window.scrollY;
+        return;
+      }
+
+      if (navToggle.checked) {
+        siteHeader.classList.remove('is-hidden');
+        lastScrollY = window.scrollY;
+        return;
+      }
+
+      const currentScrollY = window.scrollY;
+      const delta = currentScrollY - lastScrollY;
+
+      if (currentScrollY < 10 || delta <= -4) {
+        siteHeader.classList.remove('is-hidden');
+      } else if (delta >= 6 && currentScrollY > 88) {
+        siteHeader.classList.add('is-hidden');
+      }
+
+      lastScrollY = currentScrollY;
+    };
+
+    const onScroll = () => {
+      if (scrollTicking) {
+        return;
+      }
+
+      scrollTicking = true;
+      window.requestAnimationFrame(() => {
+        syncHeaderOnScroll();
+        scrollTicking = false;
+      });
     };
 
     document.addEventListener('keydown', (event) => {
@@ -61,13 +109,19 @@ document.addEventListener('DOMContentLoaded', () => {
       if (window.innerWidth > 720) {
         closeNavigation();
       }
+
+      syncHeaderOnScroll();
     });
+
+    window.addEventListener('scroll', onScroll, { passive: true });
 
     mainNav.querySelectorAll('a').forEach((link) => {
       link.addEventListener('click', () => {
         closeNavigation();
       });
     });
+
+    syncHeaderOnScroll();
   };
 
   initNavigation();

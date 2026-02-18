@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
       navToggle.setAttribute('aria-expanded', navToggle.checked ? 'true' : 'false');
     };
 
+    navToggle.checked = false;
     setExpandedState();
     navToggle.addEventListener('change', setExpandedState);
 

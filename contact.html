@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kontakt — OperatorRet</title>
+  <meta name="description" content="Kontaktformular für Booking-Anfragen bei OperatorRet: Paket wählen, Termin anfragen und Eventdetails senden." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="de_DE" />
+  <meta property="og:site_name" content="OperatorRet" />
+  <meta property="og:title" content="Kontakt — OperatorRet" />
+  <meta property="og:description" content="Jetzt Booking-Anfrage senden und Event-Termin mit OperatorRet anfragen." />
+  <meta property="og:image" content="https://www.operatorret.com/images/operatorret_main_image.webp" />
+  <meta property="og:url" content="https://www.operatorret.com/contact.html" />
+  <link rel="canonical" href="https://www.operatorret.com/contact.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Kontakt — OperatorRet" />
+  <meta name="twitter:description" content="Direktkontakt für DJ-Booking und Event-Anfragen." />
+  <meta name="twitter:image" content="https://www.operatorret.com/images/operatorret_main_image.webp" />
+  <meta name="twitter:image:alt" content="OperatorRet Portrait" />
+  <link rel="icon" type="image/png" href="images/logo_short_white.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-contact">
+  <a class="skip-link" href="#main-content">Zum Inhalt springen</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand social" href="index.html"><img src="images/logo_short_white_up.webp" alt="OperatorRet" class="logo-img" width="320" height="48" decoding="async"></a>
+      <input id="nav-toggle" type="checkbox" class="nav-toggle" aria-label="Navigation öffnen oder schließen" aria-controls="main-navigation" aria-expanded="false" />
+      <label for="nav-toggle" class="nav-toggle-label"><span></span><span></span><span></span><span class="sr-only">Menü öffnen oder schließen</span></label>
+      <nav class="main-nav" id="main-navigation" aria-label="Hauptnavigation">
+        <ul>
+          <li><a class="social" href="index.html">Home</a></li>
+          <li><a class="social" href="leistungen.html">Leistungen</a></li>
+          <li><a class="social" href="technik-setup.html">Setup</a></li>
+          <li><a class="social" href="wer-bin-ich.html">Q&A</a></li>
+          <li><a class="social" href="technical-rider.html">Rider</a></li>
+          <li><a class="social" href="availability.html">Verfügbarkeit</a></li>
+          <li><a class="social" href="galerie.html">Galerie</a></li>
+          <li><a class="social" href="contact.html" aria-current="page">Kontakt</a></li>
+        </ul>
+      </nav>
+      <a class="btn btn-cta header-book" href="contact.html">Jetzt buchen</a>
+    </div>
+  </header>
+
+  <main class="container main-legal" id="main-content">
+    <article class="legal-card">
+      <h1>Kontaktformular</h1>
+      <p class="muted">Fülle das Formular aus - ich antworte so schnell wie möglich.</p>
+      <p class="muted">Pflichtfelder sind mit * markiert.</p>
+
+      <form class="contact-form" method="post" action="https://formspree.io/f/mvzbqgow">
+        <input type="hidden" name="_subject" value="Neue Booking-Anfrage über operatorret.com">
+        <input type="hidden" name="_next" value="https://www.operatorret.com/contact-success.html">
+        <div class="form-row">
+          <div class="col">
+            <label>Vorname *<br>
+              <input type="text" name="vorname" required placeholder="Vorname" autocomplete="given-name">
+            </label>
+          </div>
+          <div class="col">
+            <label>Nachname *<br>
+              <input type="text" name="nachname" required placeholder="Nachname" autocomplete="family-name">
+            </label>
+          </div>
+        </div>
+
+        <label>E-Mail *<br>
+          <input type="email" name="_replyto" required placeholder="deine@email.de" autocomplete="email" inputmode="email">
+        </label>
+
+        <label>Handy / Telefonnummer<br>
+          <input type="tel" name="telefon" placeholder="+49 176 ..." autocomplete="tel" inputmode="tel">
+        </label>
+
+        <label>Bevorzugter Kontaktweg<br>
+          <select name="bevorzugter_kontaktweg">
+            <option value="" disabled selected>Bitte auswählen</option>
+            <option value="WhatsApp">WhatsApp</option>
+            <option value="E-Mail">E-Mail</option>
+            <option value="Telefon">Telefon</option>
+            <option value="Signal">Signal</option>
+            <option value="SMS">SMS</option>
+          </select>
+        </label>
+
+        <label>Straße & Hausnummer<br>
+          <input type="text" name="strasse" placeholder="Musterstraße 12" autocomplete="address-line1">
+        </label>
+
+        <div class="form-row">
+          <div class="col">
+            <label>PLZ<br>
+              <input type="text" name="plz" placeholder="82362" autocomplete="postal-code" inputmode="numeric">
+            </label>
+          </div>
+          <div class="col">
+            <label>Ort / Stadt<br>
+              <input type="text" name="ort" placeholder="Weilheim" autocomplete="address-level2">
+            </label>
+          </div>
+        </div>
+
+        <label>Gewünschtes Paket<br>
+          <select name="paket">
+            <option value="" selected>Bitte auswählen</option>
+            <option value="Performance Only">Performance Only</option>
+            <option value="Das Sorglos-Paket">Das Sorglos-Paket</option>
+            <option value="Die Big Stage Experience">Die Big Stage Experience</option>
+            <option value="Unklar / Beratung">Unklar / Beratung</option>
+          </select>
+        </label>
+
+        <label>Art des Events<br>
+          <input type="text" name="event_art" placeholder="Geburtstag, Hochzeit, Clubnacht, Firmenfeier ..." autocomplete="off">
+        </label>
+
+        <div class="form-row">
+          <div class="col">
+            <label>Gästezahl (geschätzt)<br>
+              <input type="number" name="gaeste" min="1" step="1" placeholder="z. B. 80" inputmode="numeric">
+            </label>
+          </div>
+          <div class="col">
+            <label>Name der Location<br>
+              <input type="text" name="location_name" placeholder="Name der Venue / Halle / Club" autocomplete="organization">
+            </label>
+          </div>
+        </div>
+
+        <label>Datum des Events<br>
+          <input type="date" name="event_datum">
+        </label>
+
+        <div class="form-row">
+          <div class="col">
+            <label>Uhrzeit von<br>
+              <input type="time" name="start_zeit">
+            </label>
+          </div>
+          <div class="col">
+            <label>Uhrzeit bis (geschätzt)<br>
+              <input type="time" name="end_zeit">
+            </label>
+          </div>
+        </div>
+
+        <label>Zusätzliche Informationen<br>
+          <textarea name="nachricht" rows="6" placeholder="Weitere Details (Ablauf, Technik, Musikrichtung, Sonderwünsche)"></textarea>
+        </label>
+
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hp-field" aria-hidden="true">
+        <input type="text" name="website" tabindex="-1" autocomplete="off" class="hp-field" aria-hidden="true">
+
+        <div class="form-actions">
+          <button class="btn btn-cta" type="submit">Absenden</button>
+          <a class="btn btn-ghost" href="index.html">Abbrechen</a>
+          <a class="btn btn-ghost" href="availability.html">Verfügbarkeit ansehen</a>
+          <a class="btn btn-ghost" href="mailto:theoperatorret@gmail.com?subject=Frage%20zu%20einem%20Event">Fragen? E-Mail an mich</a>
+        </div>
+      </form>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="copyright">© 2026 OperatorRet</p>
+      <nav class="footer-links">
+        <a class="social" href="impressum.html">Impressum</a>
+        <a class="social" href="datenschutz.html">Datenschutz</a>
+        <a class="social" href="contact.html">Kontaktformular</a>
+      </nav>
+      <div class="footer-social">
+        <p class="footer-heading">Social Media</p>
+        <nav class="footer-links footer-social-links">
+          <a class="social" href="https://open.spotify.com/artist/2KuK68jgYHQNT7PTg1cm2C?si=c849d2fc54a34ae2" target="_blank" rel="noopener noreferrer" aria-label="Spotify"><img class="social-icon" src="images/spotify.png" alt="Spotify" width="24" height="24" loading="lazy" decoding="async"></a>
+          <a class="social" href="https://music.apple.com/de/artist/operatorret/1792217392" target="_blank" rel="noopener noreferrer" aria-label="Apple Music"><img class="social-icon" src="images/apple_music.png" alt="Apple Music" width="24" height="24" loading="lazy" decoding="async"></a>
+          <a class="social" href="https://www.instagram.com/theoperatorret/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img class="social-icon" src="images/instagram.png" alt="Instagram" width="24" height="24" loading="lazy" decoding="async"></a>
+          <a class="social" href="https://www.youtube.com/@operatorret" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><img class="social-icon" src="images/youtube.png" alt="YouTube" width="24" height="24" loading="lazy" decoding="async"></a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="scripts/navigation-a11y.js" defer></script>
+  <script src="scripts/contact-form-submit.js" defer></script>
+  <script src="scripts/protect-images.js" defer></script>
+</body>
+</html>

@@ -711,12 +711,16 @@ body.page-home #contact .contact-actions .btn{ min-width:170px; }
 @keyframes revealLift{
   0%{
     opacity:0;
+    transform: translate3d(0,26px,0) scale(0.985);
+    filter: blur(8px) saturate(88%);
   }
-  70%{
+  65%{
     opacity:1;
   }
   100%{
     opacity:1;
+    transform: translate3d(0,0,0) scale(1);
+    filter: blur(0) saturate(100%);
   }
 }
 
@@ -805,6 +809,25 @@ body.page-availability .availability-board{ animation-delay:.28s; }
 .main-legal{ padding-top:5.5rem; padding-bottom:5.5rem; }
 .legal-card{ background:var(--card-bg); padding:1.6rem; border-radius:12px; border:1px solid var(--glass-border); max-width:1000px; margin:0 auto; transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
 .page-bottom-cta{ display:flex; justify-content:center; margin-top:1.4rem; }
+
+.legal-contact-gradient,
+.legal-contact-gradient a,
+.legal-contact-gradient strong{
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.legal-contact-gradient a{
+  font-weight:700;
+  text-decoration:none;
+}
+
+.legal-contact-gradient a:hover,
+.legal-contact-gradient a:focus-visible{
+  filter: brightness(1.14);
+}
 
 /* Package box - used on Leistungen to present each package as a large card */
 .package-box{ background: linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.008)); padding:1.4rem; border-radius:14px; border:1px solid var(--glass-border); margin:1.1rem 0; box-shadow: 0 14px 36px rgba(0,0,0,0.42); border-left:4px solid rgba(127,0,178,0.08); transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
@@ -1189,6 +1212,22 @@ body.page-contact-success .success-page-overlay .beam{
 .gallery-lightbox-caption .track-artist{
   color:rgba(255,255,255,0.92);
   font-weight:600;
+}
+
+.gallery-item figcaption .gallery-credit,
+.gallery-lightbox-caption .gallery-credit{
+  display:block;
+  margin-top:0.46rem;
+  font-size:0.76rem;
+  line-height:1.35;
+  letter-spacing:0.04em;
+  font-weight:700;
+  text-transform:uppercase;
+  background:linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  opacity:0.96;
 }
 
 .gallery-item.is-video .gallery-media{

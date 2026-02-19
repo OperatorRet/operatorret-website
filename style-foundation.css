@@ -23,6 +23,35 @@ html,body{ height:100%; margin:0; font-family: "Poppins", system-ui, -apple-syst
 body{ position:relative; isolation:isolate; min-height:100vh; min-height:100dvh; display:flex; flex-direction:column; }
 html,
 body{ overflow-x:hidden; }
+
+html{
+  scrollbar-width:thin;
+  scrollbar-color: rgba(127,0,178,0.92) rgba(255,255,255,0.06);
+}
+
+*::-webkit-scrollbar{
+  width:12px;
+  height:12px;
+}
+
+*::-webkit-scrollbar-track{
+  background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.015));
+}
+
+*::-webkit-scrollbar-thumb{
+  background: linear-gradient(180deg, var(--accent-primary), var(--accent-secondary));
+  border-radius:999px;
+  border:2px solid var(--bg);
+}
+
+*::-webkit-scrollbar-thumb:hover{
+  filter: brightness(1.08);
+}
+
+*::-webkit-scrollbar-corner{
+  background: transparent;
+}
+
 body > main{ flex:1 0 auto; }
 body > main.main-legal + .site-footer{ margin-top:auto; }
 body::before{

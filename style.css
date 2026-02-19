@@ -810,6 +810,16 @@ body.page-availability .availability-board{ animation-delay:.28s; }
 .legal-card{ background:var(--card-bg); padding:1.6rem; border-radius:12px; border:1px solid var(--glass-border); max-width:1000px; margin:0 auto; transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
 .page-bottom-cta{ display:flex; justify-content:center; margin-top:1.4rem; }
 
+/* Datenschutz mobile robustness: prevent horizontal overflow from long legal URLs/text */
+body.page-datenschutz .legal-card,
+body.page-datenschutz .legal-card p,
+body.page-datenschutz .legal-card li,
+body.page-datenschutz .legal-card a{
+  overflow-wrap:anywhere;
+  word-break:break-word;
+  hyphens:auto;
+}
+
 .legal-contact-gradient a{
   background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
   -webkit-background-clip:text;
@@ -1700,9 +1710,9 @@ a:focus{ outline:3px solid rgba(127,0,178,0.14); outline-offset:3px; border-radi
     min-height:38px;
     display:flex;
     box-sizing:border-box;
-    width:calc(100% - 2px);
+    width:100%;
     max-width:none;
-    margin:0 auto;
+    margin:0;
     align-items:center;
     justify-content:center;
     text-align:center;
@@ -1711,9 +1721,9 @@ a:focus{ outline:3px solid rgba(127,0,178,0.14); outline-offset:3px; border-radi
     font-size:0.95rem;
     color:var(--white) !important;
     border:1px solid rgba(255,255,255,0.24);
-    background:linear-gradient(90deg,var(--accent-primary),var(--accent-secondary));
-    box-shadow:0 10px 24px rgba(127,0,178,0.22);
-    text-shadow:0 1px 2px rgba(0,0,0,0.35);
+    background:rgba(255,255,255,0.06);
+    box-shadow:none;
+    text-shadow:none;
   }
 
   .site-header .nav-toggle:checked ~ .main-nav{
@@ -1778,10 +1788,11 @@ body.page-home .logo-long-wrap{
 }
 
 body.page-home .about-text{
-  width:100%;
-  max-width:100%;
+  width:min(100%, clamp(36ch, 34vw, 46ch));
+  max-width:clamp(36ch, 34vw, 46ch);
   font-size:clamp(1rem, 0.78rem + 0.72vw, 1.28rem);
   line-height:1.55;
+  text-wrap:pretty;
 }
 
 body.page-home .right-portrait{
@@ -1812,7 +1823,7 @@ body.page-home #contact.container{
     max-width:1360px;
   }
 
-  body.page-home .about-text{ max-width:52ch; }
+  body.page-home .about-text{ max-width:46ch; }
 }
 
 @media (max-width:1180px){

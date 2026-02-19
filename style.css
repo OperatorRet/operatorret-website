@@ -1776,6 +1776,7 @@ body.page-home .logo-short{
   width:100%;
   max-width:100%;
   max-height:none;
+  margin-top:10px;
 }
 
 body.page-home .logo-long{
@@ -1785,12 +1786,13 @@ body.page-home .logo-long{
 
 body.page-home .logo-long-wrap{
   width:100%;
+  margin-top:10px;
 }
 
 body.page-home .about-text{
   width:min(100%, clamp(36ch, 34vw, 46ch));
   max-width:clamp(36ch, 34vw, 46ch);
-  font-size:clamp(1rem, 0.78rem + 0.72vw, 1.28rem);
+  font-size:clamp(1.14rem, 0.92rem + 0.79vw, 1.46rem);
   line-height:1.55;
   text-wrap:pretty;
 }

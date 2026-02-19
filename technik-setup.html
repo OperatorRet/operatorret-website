@@ -51,7 +51,7 @@
   <main class="container main-legal" id="main-content">
     <article class="legal-card">
       <h1>Mein Technik-Setup erklärt</h1>
-      <p class="muted">Wenn du einen DJ buchst, kaufst du nicht nur Musik, sondern auch das Werkzeug, mit dem sie präsentiert wird. Viele DJs verstecken sich hinter Kabelbergen oder nutzen veraltete Technik. Ich will euch hier meine Karten offenbaren.</p>
+      <p class="muted">Wenn Sie einen DJ buchen, kaufen Sie nicht nur Musik, sondern auch das Werkzeug, mit dem sie präsentiert wird. Viele DJs verstecken sich hinter Kabelbergen oder nutzen veraltete Technik. Ich will euch hier meine Karten offenbaren.</p>
 
       <div class="package-box">
         <p>Mein Setup ist modern, zuverlässig und perfekt auf meinen Stil abgestimmt: Big Room und anderer Festival-EDM brauchen Bass, klare Höhen und eine Lichtshow, die die Energie der Musik visuell unterstreicht. Hier ist ein detaillierter Blick auf meine Hardware.</p>
@@ -94,7 +94,7 @@
       </div>
 
       <div class="package-box">
-        <p>Hast du Fragen zu den technischen Voraussetzungen für deine Location? Schau gerne in meinen <a class="social" href="technical-rider.html">Tech-Guide</a> oder nutze direkt das <a class="social" href="contact.html">Kontaktformular</a>.</p>
+        <p>Haben Sie Fragen zu den technischen Voraussetzungen für Ihre Location? Schauen Sie gerne in meinen <a class="social" href="technical-rider.html">Tech-Guide</a> oder nutzen Sie direkt das <a class="social" href="contact.html">Kontaktformular</a>.</p>
       </div>
 
       <div class="page-bottom-cta">
@@ -105,7 +105,7 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p class="copyright">© 2026 OperatorRet</p>
+      <p class="copyright">© <span id="copyright-year"></span> OperatorRet</p>
       <nav class="footer-links">
         <a class="social" href="impressum.html">Impressum</a>
         <a class="social" href="datenschutz.html">Datenschutz</a>
@@ -127,5 +127,6 @@
   <script src="scripts/header-loader.js" defer></script>
   <script src="scripts/navigation-a11y.js" defer></script>
   <script src="scripts/protect-images.js" defer></script>
+  <script>document.getElementById('copyright-year').textContent = new Date().getFullYear();</script>
 </body>
 </html>

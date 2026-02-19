@@ -160,7 +160,7 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p class="copyright">© 2026 OperatorRet</p>
+      <p class="copyright">© <span id="copyright-year"></span> OperatorRet</p>
       <nav class="footer-links">
         <a class="social" href="impressum.html">Impressum</a>
         <a class="social" href="datenschutz.html">Datenschutz</a>
@@ -182,5 +182,6 @@
   <script src="scripts/header-loader.js" defer></script>
   <script src="scripts/navigation-a11y.js" defer></script>
   <script src="scripts/protect-images.js" defer></script>
+  <script>document.getElementById('copyright-year').textContent = new Date().getFullYear();</script>
 </body>
 </html>

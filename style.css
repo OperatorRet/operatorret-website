@@ -1647,13 +1647,20 @@ a:focus{ outline:3px solid rgba(127,0,178,0.14); outline-offset:3px; border-radi
 
   .site-header .main-nav ul{ padding:0; gap:0.62rem; }
 
+  .site-header .main-nav li{
+    width:100%;
+    border-radius:10px;
+    overflow:hidden;
+  }
+
   .site-header .main-nav a,
   .site-header .main-nav a.social{
     min-height:38px;
     display:flex;
     box-sizing:border-box;
-    width:100%;
+    width:calc(100% - 2px);
     max-width:none;
+    margin:0 auto;
     align-items:center;
     justify-content:center;
     text-align:center;

@@ -51,8 +51,8 @@
   <main class="container main-legal" id="main-content">
     <article class="legal-card">
       <h1>Kontaktformular</h1>
-      <p class="muted">Fülle das Formular aus - ich antworte so schnell wie möglich.</p>
-      <p class="muted">Pflichtfelder sind mit * markiert.</p>
+      <p class="muted">Hier können Sie eine Buchungsanfrage senden. Bei Fragen zur Verwendung oder bei technischen Problemen erreichen Sie mich bitte direkt per E‑Mail.</p>
+      <p class="muted">Pflichtfelder sind mit * gekennzeichnet.</p>
 
       <form class="contact-form" method="post" action="https://formspree.io/f/mvzbqgow">
         <input type="hidden" name="_subject" value="Neue Booking-Anfrage über operatorret.com">
@@ -157,7 +157,7 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p class="copyright">© 2026 OperatorRet</p>
+      <p class="copyright">© <span id="copyright-year"></span> OperatorRet</p>
       <nav class="footer-links">
         <a class="social" href="impressum.html">Impressum</a>
         <a class="social" href="datenschutz.html">Datenschutz</a>
@@ -180,5 +180,6 @@
   <script src="scripts/navigation-a11y.js" defer></script>
   <script src="scripts/contact-form-submit.js" defer></script>
   <script src="scripts/protect-images.js" defer></script>
+  <script>document.getElementById('copyright-year').textContent = new Date().getFullYear();</script>
 </body>
 </html>

@@ -75,7 +75,7 @@
             <img src="images/logo_long_white.webp" alt="OPERATORRET" class="logo-long">
           </div>
 
-          <p class="about-text">Ich bin ein Raver, kein Clubber. Mein Herz schlägt nicht für den Standard, sondern für die pure Energie der elektronischen Musik aus den 2010ern. Wenn du jemanden suchst, der einfach nur eine Top‑50‑Playlist abspielt, bin ich der Falsche. Meine Sets setzen auf fette Drops, treibende Builds und Momente, die bleiben - genau das bekommst du mit meiner Musik und meinen DJ‑Dienstleistungen.</p>
+          <p class="about-text">Ich bin ein Raver, kein Clubber. Mein Herz schlägt nicht für den Standard, sondern für die pure Energie der elektronischen Musik aus den 2010ern. Wenn Sie jemanden suchen, der einfach nur eine Top‑50‑Playlist abspielt, bin ich der Falsche. Meine Sets setzen auf fette Drops, treibende Builds und Momente, die bleiben - genau das bekommen Sie mit meiner Musik und meinen DJ‑Dienstleistungen.</p>
         </div>
 
         <div class="right-portrait">
@@ -116,14 +116,14 @@
   <!-- SERVICES (kurz, verlinkt auf leistungen.html) -->
   <section id="services" class="services container">
     <h2 class="section-title">Leistungen</h2>
-    <p class="section-sub">Drei Pakete - detaillierte Infos auf der Leistungsseite.</p>
+    <p class="section-sub">Detaillierte Infos auf der Leistungsseite.</p>
 
     <div class="cards-grid">
       <article class="card">
         <a class="card-link" href="leistungen.html">
           <h3>Performance Only</h3>
           <div class="price">ab <span>€150</span></div>
-          <p class="muted">Reiner DJ-Service für Clubs & ausgestattete Locations. Bis 4 Std.: 150 €, jede weitere Std. +50 €.</p>
+          <p class="muted">DJ-Service für Clubs & ausgestattete Locations. Bis 4 Std.: 150 €, jede weitere Std. +50 €.</p>
           <span class="btn btn-sm primary">Mehr</span>
         </a>
       </article>
@@ -142,7 +142,7 @@
         <a class="card-link" href="leistungen.html">
           <h3>Big Stage Experience</h3>
           <div class="price">ab <span>€1.500</span></div>
-          <p class="muted">High-End Technik & Crew. Individuelles Angebot (Orientierungswert ab ~1.500 €).</p>
+          <p class="muted">Großveranstaltung mit Möglichkeit zur Nutzung aller Gewerke der Veranstaltungstechnik. Individuelles Angebot (Orientierungswert ab ~1.500 €).</p>
           <span class="btn btn-sm primary">Mehr</span>
         </a>
       </article>
@@ -181,16 +181,17 @@
 
     <section id="availability-home" class="resources container">
       <h2 class="section-title">Verfügbarkeit</h2>
-      <p class="section-sub">Bei Anfragen mindestens 4 Wochen im Voraus bin ich zu den unten stehenden Zeiten in der Regel verfügbar. Bei kurzfristigen Anfragen oder anderen Zeiten gibt es keine Garantie, aber ich kann trotzdem verfügbar sein.</p>
+      <p class="section-sub">Wenn Sie mindestens 4 Wochen im Voraus anfragen, bin ich zu den unten stehenden Zeiten in der Regel verfügbar. Bei kurzfristigen Anfragen kann ich meine Verfügbarkeit nicht garantieren – es lohnt sich aber trotzdem, nachzufragen.</p>
+      <h3>Reguläre Einsatzzeiten für Veranstaltungen:</h3>
 
       <div class="availability-board" role="table" aria-label="Verfügbarkeitszeiten kompakt">
         <div class="availability-row" role="row">
           <p class="availability-day" role="cell">Montag bis Donnerstag</p>
-          <p class="availability-time" role="cell">18:00 - 02:00</p>
+          <p class="availability-time" role="cell">18:00 - 00:00</p>
         </div>
         <div class="availability-row" role="row">
           <p class="availability-day" role="cell">Freitag</p>
-          <p class="availability-time" role="cell">18:00 - 02:00</p>
+          <p class="availability-time" role="cell">17:00 - 04:00</p>
         </div>
         <div class="availability-row" role="row">
           <p class="availability-day" role="cell">Samstag</p>
@@ -198,7 +199,7 @@
         </div>
         <div class="availability-row" role="row">
           <p class="availability-day" role="cell">Sonntag</p>
-          <p class="availability-time" role="cell">15:00 - 03:00</p>
+          <p class="availability-time" role="cell">15:00 - 02:00</p>
         </div>
       </div>
 
@@ -247,7 +248,7 @@
     <div class="contact-grid">
       <div class="contact-card card">
         <h3>Kontakt und Buchung</h3>
-        <p class="muted">Buchungen sind ausschließlich über das Kontaktformular möglich.</p>
+        <p class="muted">Buchungen sind ausschließlich über das Kontaktformular möglich. Bei Fragen zur Verwendung oder bei technischen Problemen erreichen Sie mich bitte direkt per E‑Mail.</p>
         <div class="contact-actions">
           <a class="btn btn-sm primary" href="contact.html">Kontaktformular</a>
         </div>
@@ -259,7 +260,7 @@
   <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p class="copyright">© 2026 OperatorRet</p>
+      <p class="copyright">© <span id="copyright-year"></span> OperatorRet</p>
       <nav class="footer-links">
         <a class="social" href="impressum.html">Impressum</a>
         <a class="social" href="datenschutz.html">Datenschutz</a>
@@ -281,5 +282,6 @@
   <script src="scripts/header-loader.js" defer></script>
   <script src="scripts/navigation-a11y.js" defer></script>
   <script src="scripts/protect-images.js" defer></script>
+  <script>document.getElementById('copyright-year').textContent = new Date().getFullYear();</script>
 </body>
 </html>

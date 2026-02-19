@@ -51,8 +51,12 @@
   <main class="container main-legal" id="main-content">
     <article class="legal-card">
       <h1>Verfügbarkeit</h1>
-      <p>Wenn du mindestens 4 Wochen im Voraus anfragst, sollte ich zu den unten stehenden Zeiten in der Regel verfügbar sein. Bei kurzfristigen Anfragen oder bei anderen Zeiten gibt es keine Garantie, aber ich kann trotzdem verfügbar sein.</p>
-      <p>Alle Zeiten sind ohne Gewähr. In Schulferien oder bei besonderen Ereignissen können die Zeiten abweichen.</p>
+      <p>Wenn Sie mindestens 4 Wochen im Voraus anfragen, bin ich zu den unten stehenden Zeiten in der Regel verfügbar. <br>
+        Bei kurzfristigen Anfragen kann ich meine Verfügbarkeit nicht garantieren – es lohnt sich aber trotzdem, nachzufragen.
+      </p>
+
+      <h2>Reguläre Einsatzzeiten für Veranstaltungen:</h2>
+
 
       <div class="availability-note">
         <p class="muted">Alle Zeiten sind in 24-Stunden-Format angegeben. Endzeiten können nach Mitternacht liegen.</p>
@@ -61,11 +65,11 @@
       <div class="availability-board availability-board-large" role="table" aria-label="Verfügbarkeitszeiten">
         <div class="availability-row" role="row">
           <p class="availability-day" role="cell">Montag bis Donnerstag</p>
-          <p class="availability-time" role="cell">18:00 - 02:00</p>
+          <p class="availability-time" role="cell">18:00 - 00:00</p>
         </div>
         <div class="availability-row" role="row">
           <p class="availability-day" role="cell">Freitag</p>
-          <p class="availability-time" role="cell">18:00 - 03:00</p>
+          <p class="availability-time" role="cell">17:00 - 04:00</p>
         </div>
         <div class="availability-row" role="row">
           <p class="availability-day" role="cell">Samstag</p>
@@ -73,7 +77,7 @@
         </div>
         <div class="availability-row" role="row">
           <p class="availability-day" role="cell">Sonntag</p>
-          <p class="availability-time" role="cell">15:00 - 03:00</p>
+          <p class="availability-time" role="cell">15:00 - 02:00</p>
         </div>
       </div>
 
@@ -85,7 +89,7 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p class="copyright">© 2026 OperatorRet</p>
+      <p class="copyright">© <span id="copyright-year"></span> OperatorRet</p>
       <nav class="footer-links">
         <a class="social" href="impressum.html">Impressum</a>
         <a class="social" href="datenschutz.html">Datenschutz</a>
@@ -107,5 +111,6 @@
   <script src="scripts/header-loader.js" defer></script>
   <script src="scripts/navigation-a11y.js" defer></script>
   <script src="scripts/protect-images.js" defer></script>
+  <script>document.getElementById('copyright-year').textContent = new Date().getFullYear();</script>
 </body>
 </html>

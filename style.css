@@ -1726,6 +1726,14 @@ a:focus{ outline:3px solid rgba(127,0,178,0.14); outline-offset:3px; border-radi
     text-shadow:none;
   }
 
+  .site-header .main-nav a[aria-current="page"],
+  .site-header .main-nav a.social[aria-current="page"]{
+    background:linear-gradient(90deg,var(--accent-primary),var(--accent-secondary));
+    border-color:transparent;
+    color:var(--white) !important;
+    box-shadow:0 8px 18px rgba(127,0,178,0.2);
+  }
+
   .site-header .nav-toggle:checked ~ .main-nav{
     transform:translateX(0);
     opacity:1;

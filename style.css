@@ -1728,10 +1728,10 @@ a:focus{ outline:3px solid rgba(127,0,178,0.14); outline-offset:3px; border-radi
 
   .site-header .main-nav a[aria-current="page"],
   .site-header .main-nav a.social[aria-current="page"]{
-    background:linear-gradient(90deg,var(--accent-primary),var(--accent-secondary));
-    border-color:transparent;
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.16);
     color:var(--white) !important;
-    box-shadow:0 8px 18px rgba(127,0,178,0.2);
+    box-shadow:0 0 0 1px rgba(127,0,178,0.10), 0 0 14px rgba(255,109,0,0.10);
   }
 
   .site-header .nav-toggle:checked ~ .main-nav{

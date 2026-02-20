@@ -15,11 +15,42 @@ document.addEventListener('DOMContentLoaded', async () => {
       target.outerHTML = html;
     }
 
-    const path = window.location.pathname.split('/').pop() || 'index.html';
-    const current = document.querySelector(`.main-nav a[href="${path}"]`);
-    if (current instanceof HTMLElement) {
-      current.setAttribute('aria-current', 'page');
-    }
+    const normalizePath = (value) => {
+      const cleaned = (value || '')
+        .split('?')[0]
+        .split('#')[0]
+        .toLowerCase()
+        .replace(/\\/g, '/')
+        .replace(/\/+/g, '/')
+        .replace(/\/+$/, '');
+
+      const lastSegment = cleaned.split('/').pop() || '';
+      if (!lastSegment) {
+        return 'index';
+      }
+
+      if (lastSegment === 'index' || lastSegment === 'index.html') {
+        return 'index';
+      }
+
+      return lastSegment.replace(/\.html$/, '');
+    };
+
+    const currentPath = normalizePath(window.location.pathname);
+    const links = document.querySelectorAll('.main-nav a[href]');
+
+    links.forEach((link) => {
+      if (!(link instanceof HTMLAnchorElement)) {
+        return;
+      }
+
+      link.removeAttribute('aria-current');
+
+      const hrefPath = normalizePath(link.getAttribute('href') || '');
+      if (hrefPath === currentPath) {
+        link.setAttribute('aria-current', 'page');
+      }
+    });
 
     document.dispatchEvent(new CustomEvent('siteHeaderLoaded'));
   } catch (_) {

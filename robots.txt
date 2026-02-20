@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /contact-success.html
+Disallow: /giveaway
+Disallow: /giveaway.html
 
 Sitemap: https://www.operatorret.com/sitemap.xml

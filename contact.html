@@ -3,12 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Kontakt - OperatorRet</title>
-  <meta name="description" content="Kontaktformular für Booking-Anfragen bei OperatorRet: Paket wählen, Termin anfragen und Eventdetails senden." />
+  <title>Kontakt - OperatorRet DJ | Booking</title>
+  <meta name="description" content="Kontaktformular für Booking-Anfragen bei OperatorRet DJ: Paket wählen, Termin anfragen und Eventdetails senden." />
+  <meta name="keywords" content="OperatorRet DJ, OperatorRet, DJ Booking Oberbayern, DJ Kontakt" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="de_DE" />
   <meta property="og:site_name" content="OperatorRet" />
-  <meta property="og:title" content="Kontakt - OperatorRet" />
+  <meta property="og:title" content="Kontakt - OperatorRet DJ" />
   <meta property="og:description" content="Jetzt Booking-Anfrage senden und Event-Termin mit OperatorRet anfragen." />
   <meta property="og:image" content="https://www.operatorret.com/images/operatorret_main_image.webp" />
   <meta property="og:url" content="https://www.operatorret.com/contact.html" />
@@ -17,7 +18,7 @@
   <link rel="alternate" hreflang="de-DE" href="https://www.operatorret.com/contact.html" />
   <link rel="alternate" hreflang="x-default" href="https://www.operatorret.com/contact.html" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Kontakt - OperatorRet" />
+  <meta name="twitter:title" content="Kontakt - OperatorRet DJ" />
   <meta name="twitter:description" content="Direktkontakt für DJ-Booking und Event-Anfragen." />
   <meta name="twitter:image" content="https://www.operatorret.com/images/operatorret_main_image.webp" />
   <meta name="twitter:image:alt" content="OperatorRet Portrait" />
@@ -71,7 +72,7 @@
   <main class="container main-legal" id="main-content">
     <article class="legal-card">
       <h1>Kontaktformular</h1>
-      <p class="muted">Hier können Sie eine Buchungsanfrage senden. Bei Fragen zur Verwendung oder bei technischen Problemen erreichen Sie mich bitte direkt per E‑Mail.</p>
+      <p class="muted">Hier kannst du eine Buchungsanfrage senden. Bei Fragen zur Verwendung oder bei technischen Problemen erreichst du mich bitte direkt per E‑Mail.</p>
       <p class="muted">Pflichtfelder sind mit * gekennzeichnet.</p>
 
       <form class="contact-form" method="post" action="https://formspree.io/f/mvzbqgow">
@@ -98,22 +99,52 @@
           <input type="tel" name="telefon" placeholder="+49 176 ..." autocomplete="tel" inputmode="tel">
         </label>
 
+        <h3 class="form-heading">Adresse der buchenden Person</h3>
+        <p class="form-subheading">Für Angebot, Rechnung und Rückfragen.</p>
+
         <label>Straße & Hausnummer<br>
-          <input type="text" name="strasse" placeholder="Musterstraße 12" autocomplete="address-line1">
+          <input type="text" name="booker_strasse" placeholder="Musterstraße 12" autocomplete="address-line1">
         </label>
 
         <div class="form-row">
           <div class="col">
             <label>PLZ<br>
-              <input type="text" name="plz" placeholder="82362" autocomplete="postal-code" inputmode="numeric">
+              <input type="text" name="booker_plz" placeholder="82362" autocomplete="postal-code" inputmode="numeric">
             </label>
           </div>
           <div class="col">
             <label>Ort / Stadt<br>
-              <input type="text" name="ort" placeholder="Weilheim" autocomplete="address-level2">
+              <input type="text" name="booker_ort" placeholder="Weilheim" autocomplete="address-level2">
             </label>
           </div>
         </div>
+
+        <label class="same-address-toggle">
+          <input id="venue-same-as-booker" type="checkbox" name="venue_same_as_booker" value="ja" checked>
+          <span class="toggle-text">Venue-Adresse ist identisch mit der Adresse der buchenden Person</span>
+        </label>
+
+        <section id="venue-address-section" class="address-section" hidden>
+          <h3 class="form-heading">Venue-Adresse</h3>
+          <p class="form-subheading">Nur ausfüllen, wenn die Venue-Adresse abweicht.</p>
+
+          <label>Straße & Hausnummer der Venue<br>
+            <input type="text" name="venue_strasse" placeholder="Venue-Straße 5" autocomplete="address-line1">
+          </label>
+
+          <div class="form-row">
+            <div class="col">
+              <label>PLZ der Venue<br>
+                <input type="text" name="venue_plz" placeholder="80331" autocomplete="postal-code" inputmode="numeric">
+              </label>
+            </div>
+            <div class="col">
+              <label>Ort / Stadt der Venue<br>
+                <input type="text" name="venue_ort" placeholder="München" autocomplete="address-level2">
+              </label>
+            </div>
+          </div>
+        </section>
 
         <label>Gewünschtes Paket<br>
           <select name="paket">
@@ -178,7 +209,7 @@
 
         <div class="form-actions">
           <button class="btn btn-cta" type="submit">Absenden</button>
-          <a class="btn btn-ghost" href="index.html">Abbrechen</a>
+          <a class="btn btn-ghost" href="index.html">Zur Startseite</a>
           <a class="btn btn-ghost" href="availability.html">Verfügbarkeit ansehen</a>
         </div>
       </form>

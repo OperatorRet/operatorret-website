@@ -20,6 +20,20 @@
     }
   }
 
+  function syncVenueAddressVisibility(form) {
+    var sameCheckbox = form.querySelector('#venue-same-as-booker');
+    var venueSection = form.querySelector('#venue-address-section');
+    if (!sameCheckbox || !venueSection) return;
+
+    var venueFields = venueSection.querySelectorAll('input, select, textarea');
+    var isSame = sameCheckbox.checked;
+
+    venueSection.hidden = isSame;
+    venueFields.forEach(function (field) {
+      field.disabled = isSame;
+    });
+  }
+
   async function handleSubmit(event) {
     var form = event.currentTarget;
     event.preventDefault();
@@ -51,6 +65,15 @@
   function init() {
     var form = document.querySelector(".contact-form");
     if (!form) return;
+
+    var sameCheckbox = form.querySelector('#venue-same-as-booker');
+    if (sameCheckbox) {
+      sameCheckbox.addEventListener('change', function () {
+        syncVenueAddressVisibility(form);
+      });
+    }
+
+    syncVenueAddressVisibility(form);
     setDynamicNext(form);
     form.addEventListener("submit", handleSubmit);
   }

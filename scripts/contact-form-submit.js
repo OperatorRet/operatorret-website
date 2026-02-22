@@ -1,4 +1,17 @@
 (function () {
+  function setFormFeedback(form, message) {
+    var feedback = form.querySelector('#contact-form-feedback');
+    if (!feedback) return;
+
+    if (message) {
+      feedback.hidden = false;
+      feedback.textContent = message;
+    } else {
+      feedback.hidden = true;
+      feedback.textContent = '';
+    }
+  }
+
   function getSuccessUrl() {
     return new URL("contact-success.html", window.location.href).href;
   }
@@ -34,9 +47,49 @@
     });
   }
 
+  function emailsMatch(form) {
+    var emailInput = form.querySelector('#contact-email');
+    var emailConfirmInput = form.querySelector('#contact-email-confirm');
+    if (!emailInput || !emailConfirmInput) return true;
+
+    var normalizedEmail = emailInput.value.trim().toLowerCase();
+    var normalizedConfirm = emailConfirmInput.value.trim().toLowerCase();
+    var isMatch = normalizedEmail !== '' && normalizedEmail === normalizedConfirm;
+
+    if (!isMatch) {
+      emailConfirmInput.setCustomValidity('Die E-Mail-Adressen stimmen nicht überein.');
+      return false;
+    }
+
+    emailConfirmInput.setCustomValidity('');
+    return true;
+  }
+
+  function hasTurnstileToken(form) {
+    var tokenInput = form.querySelector('input[name="cf-turnstile-response"]');
+    return Boolean(tokenInput && tokenInput.value && tokenInput.value.trim());
+  }
+
   async function handleSubmit(event) {
     var form = event.currentTarget;
     event.preventDefault();
+
+    setFormFeedback(form, '');
+
+    if (!emailsMatch(form)) {
+      setFormFeedback(form, 'Bitte prüfe deine E-Mail-Bestätigung.');
+      form.reportValidity();
+      return;
+    }
+
+    if (!hasTurnstileToken(form)) {
+      setFormFeedback(form, 'Bitte bestätige zuerst das Captcha.');
+      return;
+    }
+
+    if (!form.reportValidity()) {
+      return;
+    }
 
     setSubmittingState(form, true);
     setDynamicNext(form);
@@ -57,6 +110,7 @@
 
       window.location.assign(targetUrl);
     } catch (error) {
+      setFormFeedback(form, 'Senden per Hintergrund-Request fehlgeschlagen, es wird ein Standard-Submit versucht...');
       setSubmittingState(form, false);
       form.submit();
     }
@@ -67,10 +121,22 @@
     if (!form) return;
 
     var sameCheckbox = form.querySelector('#venue-same-as-booker');
+    var emailInput = form.querySelector('#contact-email');
+    var emailConfirmInput = form.querySelector('#contact-email-confirm');
+
     if (sameCheckbox) {
       sameCheckbox.addEventListener('change', function () {
         syncVenueAddressVisibility(form);
       });
+    }
+
+    if (emailInput && emailConfirmInput) {
+      var syncEmailValidity = function () {
+        emailsMatch(form);
+      };
+      emailInput.addEventListener('input', syncEmailValidity);
+      emailConfirmInput.addEventListener('input', syncEmailValidity);
+      emailConfirmInput.addEventListener('blur', syncEmailValidity);
     }
 
     syncVenueAddressVisibility(form);

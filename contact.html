@@ -28,6 +28,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -92,7 +93,11 @@
         </div>
 
         <label>E-Mail *<br>
-          <input type="email" name="_replyto" required placeholder="deine@email.de" autocomplete="email" inputmode="email">
+          <input id="contact-email" type="email" name="_replyto" required placeholder="deine@email.de" autocomplete="email" inputmode="email">
+        </label>
+
+        <label>E-Mail bestätigen *<br>
+          <input id="contact-email-confirm" type="email" name="email_bestaetigung" required placeholder="E-Mail erneut eingeben" autocomplete="email" inputmode="email">
         </label>
 
         <label>Handy / Telefonnummer<br>
@@ -203,6 +208,17 @@
         <label>Zusätzliche Informationen<br>
           <textarea name="nachricht" rows="6" placeholder="Weitere Details (Ablauf, Technik, Musikrichtung, Sonderwünsche)"></textarea>
         </label>
+
+        <label class="consent-check">
+          <input type="checkbox" name="anfrage_erklaerung" value="ja" required>
+          <span>Ich bestätige, dass diese Anfrage eine konkrete Booking- oder Projektanfrage ist. Unzielführende, irreführende oder missbräuchliche Anfragen (z. B. Spam) werden nicht bearbeitet und können ohne Rückmeldung gelöscht werden.</span>
+        </label>
+
+        <div class="turnstile-wrapper">
+          <div class="cf-turnstile" data-sitekey="0x4AAAAAACghwDeySOWMnDkb" data-theme="dark"></div>
+        </div>
+
+        <p id="contact-form-feedback" class="form-feedback" role="status" aria-live="polite" hidden></p>
 
         <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hp-field" aria-hidden="true">
         <input type="text" name="website" tabindex="-1" autocomplete="off" class="hp-field" aria-hidden="true">

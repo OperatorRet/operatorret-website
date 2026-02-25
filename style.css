@@ -39,6 +39,15 @@ body > footer{
   filter: var(--logo-filter) drop-shadow(0 6px 18px rgba(127,0,178,0.14));
 }
 
+.header-book{
+  margin-left:auto;
+  padding:0.52rem 0.9rem;
+  min-height:38px;
+  font-size:0.9rem;
+  white-space:nowrap;
+  z-index:2;
+}
+
 /* NAV */
 .main-nav{ display:flex; align-items:center; }
 .main-nav-primary{ display:flex; gap:0.55rem; list-style:none; margin:0; padding:0; align-items:center; }
@@ -119,15 +128,27 @@ body.page-contact .main-nav a[href="contact.html"]{
 
 @media (min-width:721px){
   .site-header .header-inner{
+    position:relative;
     gap:1.2rem;
   }
 
   .site-header .brand{
     margin-right:auto;
+    z-index:2;
   }
 
   .site-header .main-nav{
-    margin-left:auto;
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    margin:0;
+    z-index:1;
+  }
+
+  .site-header .header-book{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
   }
 
   .site-header .main-nav-primary{
@@ -1701,6 +1722,8 @@ body.lightbox-open{ overflow:hidden; }
 @media (max-width:720px){
   .desktop-submenu{ display:none !important; }
 
+  .header-book{ display:none; }
+
   body{ overflow-x:hidden; }
   .header-inner{
     min-height:58px;
@@ -1762,9 +1785,9 @@ body.lightbox-open{ overflow:hidden; }
 
   .main-nav{
     position:fixed;
-    top:0.45rem;
+    top:0;
     right:0;
-    bottom:0.45rem;
+    bottom:0;
     left:auto;
     width:min(86vw, 370px);
     background:
@@ -1773,7 +1796,8 @@ body.lightbox-open{ overflow:hidden; }
       linear-gradient(180deg, rgba(14,14,20,0.99), rgba(9,9,14,0.97));
     padding:4.95rem 0.9rem 1rem;
     z-index:121;
-    max-height:calc(100dvh - 0.9rem);
+    height:100dvh;
+    max-height:none;
     overflow-y:auto;
     -webkit-overflow-scrolling:touch;
     opacity:0;
@@ -2110,11 +2134,12 @@ a:focus{ outline:3px solid rgba(127,0,178,0.14); outline-offset:3px; border-radi
 
 @media (min-width:721px){
   .site-header .main-nav{
-    position:static;
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
     width:auto;
     height:auto;
     padding:0;
-    transform:none;
     opacity:1;
     visibility:visible;
     pointer-events:auto;

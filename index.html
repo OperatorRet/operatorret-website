@@ -31,6 +31,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
 
   <!-- Single stylesheet -->
+  <script>
+    (function () {
+      try {
+        var value = localStorage.getItem('operatorret-theme-mode');
+        var mode = typeof value === 'string' ? value.trim().toLowerCase() : '';
+        if (mode === 'dark' || mode === 'light' || mode === 'standard') {
+          document.documentElement.setAttribute('data-theme', mode);
+        }
+      } catch (_) {}
+    })();
+  </script>
   <link rel="stylesheet" href="style.css">
   <script type="application/ld+json">
   {
@@ -77,7 +88,7 @@
             <img src="images/logo_long_white.webp" alt="OPERATORRET" class="logo-long">
           </div>
 
-          <p class="about-text">Ich bin ein Raver, kein Clubber. Mein Herz schlägt nicht für den Standard, sondern für die pure Energie der elektronischen Musik aus den 2010ern. Wenn du jemanden suchst, der einfach nur eine Top‑50‑Playlist abspielt, bin ich der Falsche. Meine Sets setzen auf fette Drops, treibende Builds und Momente, die bleiben - genau das bekommst du mit meiner Musik und meinen DJ‑Dienstleistungen.</p>
+          <p class="about-text">Ich bin ein Raver, kein Clubber. Mein Herz schlägt nicht für den Standard, sondern für die pure Energie der elektronischen Musik aus den 2010ern. Wenn du jemanden suchst, der einfach nur eine Top-50-Playlist abspielt, bin ich der Falsche. Meine Sets setzen auf fette Drops, treibende Builds und Momente, die bleiben - genau das bekommst du mit meiner Musik und meinen DJ-Dienstleistungen.</p>
         </div>
 
         <div class="right-portrait">
@@ -122,18 +133,17 @@
       <article class="card">
         <a class="card-link" href="leistungen.html">
           <h3>Performance Only</h3>
-          <div class="price">ab <span>€150</span></div>
-          <p class="muted">DJ-Service für Clubs & ausgestattete Locations. Bis 4 Std.: 150 €, jede weitere Std. +50 €.</p>
+          <div class="price"><span class="price-prefix">ab</span> <span class="price-new">€100</span> <span class="price-old">€150</span> <span class="price-discount">-33 %</span></div>
+          <p class="muted">Ideal für Clubs und ausgestattete Locations: Du bekommst meine reine DJ-Performance inklusive professionellem Performance-Setup und sauber abgestimmtem musikalischem Ablauf.</p>
           <span class="btn btn-sm primary">Mehr</span>
         </a>
       </article>
 
       <article class="card">
         <a class="card-link" href="leistungen.html">
-          <span class="recommended-badge">Empfohlen</span>
           <h3>Sorglos-Paket</h3>
-          <div class="price">ab <span>€350</span></div>
-          <p class="muted">All-in-One: Set, PA & Licht. Bis 4 Std.: 350 €, jede weitere Std. +60 €.</p>
+          <div class="price"><span class="price-prefix">ab</span> <span class="price-new">€200</span> <span class="price-old">€350</span> <span class="price-discount">-43 %</span> <span class="recommended-badge">Empfohlen</span></div>
+          <p class="muted">Die All-in-One Lösung für private Events: DJ-Performance plus Ton- und Lichttechnik inklusive Auf- und Abbau für einen entspannten, sofort einsatzbereiten Ablauf.</p>
           <span class="btn btn-sm primary">Mehr</span>
         </a>
       </article>
@@ -141,8 +151,8 @@
       <article class="card">
         <a class="card-link" href="leistungen.html">
           <h3>Big Stage Experience</h3>
-          <div class="price">ab <span>€1.500</span></div>
-          <p class="muted">Großveranstaltung mit Möglichkeit zur Nutzung aller Gewerke der Veranstaltungstechnik. Individuelles Angebot (Orientierungswert ab ~1.500 €).</p>
+          <div class="price"><span class="price-prefix">ab</span> <span class="price-new">€1.500</span></div>
+          <p class="muted">Für größere Events mit professioneller Produktion: DJ-Performance, erfahrene Technik-Crew und skalierbares Ton-, Licht- und Bühnenkonzept passend zu Location und Publikum.</p>
           <span class="btn btn-sm primary">Mehr</span>
         </a>
       </article>
@@ -263,7 +273,7 @@
     <div class="contact-grid">
       <div class="contact-card card">
         <h3>Kontakt und Buchung</h3>
-        <p class="muted">Buchungen sind ausschließlich über das Kontaktformular möglich. Bei Fragen zur Verwendung oder bei technischen Problemen erreichst du mich bitte direkt per E‑Mail.</p>
+        <p class="muted">Buchungen sind ausschließlich über das Kontaktformular möglich. Bei Fragen zur Verwendung oder bei technischen Problemen erreichst du mich auch direkt per E-Mail.</p>
         <div class="contact-actions">
           <a class="btn btn-sm primary" href="contact.html">Kontaktformular</a>
         </div>

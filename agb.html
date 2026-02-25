@@ -26,6 +26,17 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+  <script>
+    (function () {
+      try {
+        var value = localStorage.getItem('operatorret-theme-mode');
+        var mode = typeof value === 'string' ? value.trim().toLowerCase() : '';
+        if (mode === 'dark' || mode === 'light' || mode === 'standard') {
+          document.documentElement.setAttribute('data-theme', mode);
+        }
+      } catch (_) {}
+    })();
+  </script>
   <link rel="stylesheet" href="style.css">
   <script type="application/ld+json">
   {
@@ -101,7 +112,7 @@
         <li><strong>Sorglos-Paket:</strong> mindestens 90 Minuten für Aufbau, Verkabelung, Licht-/Soundcheck und Funktionsprüfung.</li>
         <li><strong>Big Stage Experience:</strong> mindestens 180 Minuten bzw. die im Einzelangebot definierte längere Aufbauzeit; bei komplexen Produktionen kann zusätzlich ein separates Load-In-/Vortagesslot erforderlich sein.</li>
       </ul>
-      <p>Strom, Zugänge und Stellflächen müssen zum vereinbarten Aufbauzeitpunkt vollständig verfügbar sein. Bei vom Veranstalter verursachten Verzögerungen kann je angefangener zusätzlicher Warte-Stunde eine Pauschale von 25 € berechnet werden; bei „Big Stage Experience“ bleiben darüber hinaus nachgewiesene Zusatzkosten für Personal, Miete oder Logistik erstattungsfähig.</p>
+      <p>Strom, Zugänge und Stellflächen müssen zum vereinbarten Aufbauzeitpunkt vollständig verfügbar sein. Bei vom Veranstalter verursachten Verzögerungen kann je angefangener zusätzlicher Warte-Stunde eine Pauschale von <span class="price-new">25 €</span> berechnet werden; bei „Big Stage Experience“ bleiben darüber hinaus nachgewiesene Zusatzkosten für Personal, Miete oder Logistik erstattungsfähig.</p>
 
       <h3>§ 7 Mitwirkungspflichten und Sicherheit</h3>
       <p>Der Veranstalter sorgt für sichere Arbeitsbedingungen, freien Zugang zum DJ-Platz und den Schutz der Technik vor Eingriffen durch Gäste oder Dritte. Getränke, Rauchen und Vapen im unmittelbaren Geräte-/Kabelbereich sind zu unterbinden.</p>

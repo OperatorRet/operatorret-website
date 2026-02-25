@@ -12,9 +12,37 @@
   --accent-primary: #7F00B2; /* purple */
   --accent-secondary: #FF6D00; /* orange */
   --glass-border: rgba(255,255,255,0.04);
+  --logo-filter: none;
+  --watermark-filter: grayscale(1) saturate(0.08);
   --max-width: 1200px;
   --radius: 14px;
   --shadow: 0 8px 30px rgba(0,0,0,0.6);
+}
+
+:root[data-theme="dark"]{
+  --bg: #080912;
+  --card-bg: rgba(255,255,255,0.035);
+  --card-contrast: rgba(255,255,255,0.02);
+  --muted: #c2c8e0;
+  --white: #f7f8ff;
+  --accent-primary: #2f6fff; /* blue */
+  --accent-secondary: #7a2bff; /* purple */
+  --glass-border: rgba(255,255,255,0.08);
+  --logo-filter: none;
+  --watermark-filter: grayscale(1) saturate(0.12);
+}
+
+:root[data-theme="light"]{
+  --bg: #eef2fb;
+  --card-bg: rgba(255,255,255,0.86);
+  --card-contrast: rgba(255,255,255,0.74);
+  --muted: #1f2430;
+  --white: #0f141d;
+  --accent-primary: #1f6fff;
+  --accent-secondary: #00a4c8;
+  --glass-border: rgba(0,0,0,0.12);
+  --logo-filter: brightness(0) saturate(0%);
+  --watermark-filter: invert(1) grayscale(1) saturate(0);
 }
 
 /* ========== BASE ========== */
@@ -27,6 +55,14 @@ body{ overflow-x:hidden; }
 html{
   scrollbar-width:thin;
   scrollbar-color: rgba(127,0,178,0.92) rgba(255,255,255,0.06);
+}
+
+:root[data-theme="dark"] html{
+  scrollbar-color: rgba(47,111,255,0.94) rgba(255,255,255,0.05);
+}
+
+:root[data-theme="light"] html{
+  scrollbar-color: rgba(31,111,255,0.74) rgba(0,0,0,0.08);
 }
 
 *::-webkit-scrollbar{
@@ -67,7 +103,7 @@ body::before{
   transform:rotate(-45deg);
   transform-origin:center;
   opacity:0.02;
-  filter:grayscale(1) saturate(0.08);
+  filter:var(--watermark-filter);
 }
 a, button { -webkit-font-smoothing:antialiased; }
 button{

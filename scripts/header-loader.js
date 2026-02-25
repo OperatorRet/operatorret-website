@@ -1,8 +1,132 @@
+const THEME_STORAGE_KEY = 'operatorret-theme-mode';
+const VALID_THEME_MODES = ['standard', 'dark', 'light'];
+
+const normalizeThemeMode = (value) => {
+  if (typeof value !== 'string') return 'standard';
+  const normalized = value.trim().toLowerCase();
+  return VALID_THEME_MODES.includes(normalized) ? normalized : 'standard';
+};
+
+const applyThemeMode = (mode) => {
+  const themeMode = normalizeThemeMode(mode);
+  document.documentElement.setAttribute('data-theme', themeMode);
+  return themeMode;
+};
+
+const getStoredThemeMode = () => {
+  try {
+    return normalizeThemeMode(localStorage.getItem(THEME_STORAGE_KEY));
+  } catch (_) {
+    return 'standard';
+  }
+};
+
+const persistThemeMode = (mode) => {
+  try {
+    localStorage.setItem(THEME_STORAGE_KEY, normalizeThemeMode(mode));
+  } catch (_) {
+  }
+};
+
+const createThemeToggle = (placement) => {
+  const wrapper = document.createElement('div');
+  wrapper.className = `theme-mode-toggle theme-mode-toggle-${placement}`;
+  wrapper.setAttribute('role', 'group');
+  wrapper.setAttribute('aria-label', 'Darstellungsmodus');
+
+  const modeOptions = [
+    { mode: 'standard', label: 'Std' },
+    { mode: 'dark', label: 'Dark' },
+    { mode: 'light', label: 'Light' }
+  ];
+
+  modeOptions.forEach(({ mode, label }) => {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'theme-mode-btn';
+    button.dataset.themeMode = mode;
+    button.textContent = label;
+    button.setAttribute('aria-label', `Modus ${label}`);
+    wrapper.appendChild(button);
+  });
+
+  return wrapper;
+};
+
+const syncThemeToggles = (mode) => {
+  const currentMode = normalizeThemeMode(mode);
+  const buttons = document.querySelectorAll('.theme-mode-btn[data-theme-mode]');
+
+  buttons.forEach((button) => {
+    if (!(button instanceof HTMLButtonElement)) {
+      return;
+    }
+
+    const isActive = button.dataset.themeMode === currentMode;
+    button.classList.toggle('is-active', isActive);
+    button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+  });
+};
+
+const setThemeMode = (mode) => {
+  const appliedMode = applyThemeMode(mode);
+  persistThemeMode(appliedMode);
+  syncThemeToggles(appliedMode);
+};
+
+const mountHeaderThemeToggle = () => {
+  const headerInner = document.querySelector('.site-header .header-inner');
+  if (!(headerInner instanceof HTMLElement)) return;
+  if (headerInner.querySelector('.theme-mode-toggle-header')) return;
+
+  const toggle = createThemeToggle('header');
+  const headerButton = headerInner.querySelector('.header-book');
+
+  if (headerButton instanceof HTMLElement) {
+    headerInner.insertBefore(toggle, headerButton);
+    return;
+  }
+
+  headerInner.appendChild(toggle);
+};
+
+const mountFooterThemeToggle = () => {
+  const footerInner = document.querySelector('.site-footer .footer-inner');
+  if (!(footerInner instanceof HTMLElement)) return;
+  if (footerInner.querySelector('.theme-mode-toggle-footer')) return;
+
+  const toggle = createThemeToggle('footer');
+  const footerSocial = footerInner.querySelector('.footer-social');
+
+  if (footerSocial instanceof HTMLElement) {
+    footerInner.insertBefore(toggle, footerSocial);
+    return;
+  }
+
+  footerInner.appendChild(toggle);
+};
+
+applyThemeMode(getStoredThemeMode());
+
+document.addEventListener('click', (event) => {
+  const target = event.target;
+  if (!(target instanceof HTMLElement)) return;
+  if (!target.classList.contains('theme-mode-btn')) return;
+
+  const nextMode = normalizeThemeMode(target.dataset.themeMode);
+  setThemeMode(nextMode);
+});
+
 document.addEventListener('DOMContentLoaded', async () => {
+  mountFooterThemeToggle();
+
   const root = document.getElementById('site-header-root');
   const existingHeader = document.querySelector('header.site-header');
   const target = root instanceof HTMLElement ? root : existingHeader;
-  if (!(target instanceof HTMLElement)) return;
+  if (!(target instanceof HTMLElement)) {
+    syncThemeToggles(getStoredThemeMode());
+    return;
+  }
 
   try {
     const response = await fetch('partials/header.html', { cache: 'no-store' });
@@ -14,6 +138,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     } else {
       target.outerHTML = html;
     }
+
+    mountHeaderThemeToggle();
+    mountFooterThemeToggle();
 
     const normalizePath = (value) => {
       const cleaned = (value || '')
@@ -52,7 +179,11 @@ document.addEventListener('DOMContentLoaded', async () => {
       }
     });
 
+    syncThemeToggles(getStoredThemeMode());
+
     document.dispatchEvent(new CustomEvent('siteHeaderLoaded'));
   } catch (_) {
+    mountHeaderThemeToggle();
+    syncThemeToggles(getStoredThemeMode());
   }
 });

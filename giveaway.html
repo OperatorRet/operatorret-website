@@ -26,6 +26,17 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+  <script>
+    (function () {
+      try {
+        var value = localStorage.getItem('operatorret-theme-mode');
+        var mode = typeof value === 'string' ? value.trim().toLowerCase() : '';
+        if (mode === 'dark' || mode === 'light' || mode === 'standard') {
+          document.documentElement.setAttribute('data-theme', mode);
+        }
+      } catch (_) {}
+    })();
+  </script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="page-impressum">
@@ -67,7 +78,7 @@
       <p>Rabattstufe 2: 50 % Rabatt für Fam/Best Friends/Mitwirkende.</p>
       <p>Pro teilnehmender Person wird der Rabatt einmalig vergeben. Mehrfache Annahmen führen nicht zu mehrfachen Rabatten.</p>
       <p>Der Rabatt ist nicht übertragbar, nicht in bar auszahlbar und nicht mit anderen Aktionen kombinierbar.</p>
-      <p>Einlösungsbedingungen: Der Rabatt gilt für Buchungen, die binnen 1 Monat nach Zuteilung des Rabattcodes vorgenommen werden und einem Mindestumsatz von 200 EUR entsprechen.</p>
+      <p>Einlösungsbedingungen: Der Rabatt gilt für Buchungen, die binnen 1 Monat nach Zuteilung des Rabattcodes vorgenommen werden und einem Mindestumsatz von <span class="price-new">200 EUR</span> entsprechen.</p>
 
       <h3>Benachrichtigung und Einlösung</h3>
       <p>Wird eine Zuordnung bestätigt, setzt sich der Veranstalter per derselben Kommunikationsplattform (WhatsApp/Instagram/Discord) mit dem Teilnehmenden in Verbindung und übermittelt einen Rabattcode bzw. Einlösehinweise.</p>

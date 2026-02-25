@@ -26,6 +26,17 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+  <script>
+    (function () {
+      try {
+        var value = localStorage.getItem('operatorret-theme-mode');
+        var mode = typeof value === 'string' ? value.trim().toLowerCase() : '';
+        if (mode === 'dark' || mode === 'light' || mode === 'standard') {
+          document.documentElement.setAttribute('data-theme', mode);
+        }
+      } catch (_) {}
+    })();
+  </script>
   <link rel="stylesheet" href="style.css">
   <script type="application/ld+json">
   {
@@ -131,7 +142,7 @@
         <p>Ich habe da eine klare Struktur, der ich seit dem Anfang meiner Karriere folge.</p>
         <p>Ich starte mit sehr chilligem House und Melodic oder Minimal Techno. Diese Tracks sollen dazu dienen, dass die Crowd Zeit hat, anzukommen, sich zu unterhalten, und langsam reinzukommen.</p>
         <p>Ich spiele dann oft, bevor es zur Peak-Time kommt, noch ein wenig Pop oder andere bekannte Lieder, um die Leute happy zu machen.</p>
-        <p>Darauf folgt dann meistens der, meiner Meinung nach, beste Teil. Big Room mit grellem Licht, fettem Bass und den besten Drops. Von der Crowd erwartet man da immer hohe Hände und rhythmisches Springen. Da steigert man sich natürlich von langsam und chill zu immer schnelleren und krasseren Songs. Wenn die Vibes oder der Alkoholpegel hoch genug sind, kann man hier auch ein bisschen Hardstyle oder Hypertechno einbauen.</p>
+        <p>Darauf folgt dann meistens der, meiner Meinung nach, beste Teil. Big Room mit grellem Licht, fettem Bass und den besten Drops. Von der Crowd erwartet man da immer hohe Hände und rhythmisches Springen. Da steigert man sich natürlich von langsam und chill zu immer schnelleren und krasseren Songs. Wenn die Vibes oder der Alkoholpegel hoch genug sind, kann man hier auch ein bisschen Hardstyle oder Hard Techno einbauen.</p>
         <p>Wenn die Gäste langsam nicht mehr können, gehe ich in die nächste Phase. Diese besteht aus 2010er-Partymusik. Ziel sind gute Vibes, zu denen man aber wieder ein bisschen runterkommen kann, ohne einzuschlafen.</p>
         <p>Wenn es langsam zum Schluss kommt, nutze ich meine letzte Waffe, Nostalgie pur. Mitsingen, tiefe Gefühle und Erinnerungen daran, wie einfach alles vor 10 Jahren noch war. Ein emotionaler Abschluss gehört in jedes Event, ob Club, Rave oder Hausparty.</p>
         <p>Zum Abschluss wird nochmal die chillige House-Musik ausgepackt, um die Leute zu beruhigen und den Weg zur Tür zu eröffnen.</p>

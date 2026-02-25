@@ -26,6 +26,17 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+  <script>
+    (function () {
+      try {
+        var value = localStorage.getItem('operatorret-theme-mode');
+        var mode = typeof value === 'string' ? value.trim().toLowerCase() : '';
+        if (mode === 'dark' || mode === 'light' || mode === 'standard') {
+          document.documentElement.setAttribute('data-theme', mode);
+        }
+      } catch (_) {}
+    })();
+  </script>
   <link rel="stylesheet" href="style.css">
   <script type="application/ld+json">
   {
@@ -46,13 +57,13 @@
         {
           "@type": "Offer",
           "name": "Performance Only",
-          "price": "150",
+          "price": "100",
           "priceCurrency": "EUR"
         },
         {
           "@type": "Offer",
           "name": "Das Sorglos-Paket",
-          "price": "350",
+          "price": "200",
           "priceCurrency": "EUR"
         },
         {
@@ -127,15 +138,14 @@
 
         <h3>Die Preise:</h3>
         <ul>
-          <li>Bis 4 Stunden Spielzeit: <strong>150,00 €</strong></li>
-          <li>Jede weitere Stunde: <strong>+ 50,00 €</strong></li>
+          <li>Bis 4 Stunden Spielzeit: <strong class="price-old">150,00 €</strong> <strong class="price-new">100,00 €</strong> <span class="price-discount">(-33 %)</span></li>
+          <li>Jede weitere Stunde: <strong class="price-new">+ 50,00 €</strong></li>
           <li>(Preise zzgl. Fahrtkosten)</li>
         </ul>
       </div>
 
       <div class="package-box">
         <h2 id="sorglos">Das Sorglos-Paket</h2>
-        <span class="recommended-badge">Empfohlen</span>
         <p><em>Die All-in-One Lösung für Hauspartys, Geburtstage & Hochzeiten</em></p>
 
         <p>Dieses Paket ist für Veranstaltungen geeignet, bei denen eine passende Location vorhanden ist, aber keine eigene Veranstaltungstechnik bereitsteht. Ich bringe die benötigte Ton- und Lichttechnik mit, übernehme den Aufbau und sorge dafür, dass der Raum technisch und musikalisch direkt einsatzbereit ist.</p>
@@ -151,8 +161,8 @@
 
         <h3>Die Preise:</h3>
         <ul>
-          <li>Bis 4 Stunden Spielzeit: <strong>350,00 €</strong></li>
-          <li>Jede weitere Stunde: <strong>+ 60,00 €</strong></li>
+          <li>Bis 4 Stunden Spielzeit: <strong class="price-old">350,00 €</strong> <strong class="price-new">200,00 €</strong> <span class="price-discount">(-43 %)</span> <span class="recommended-badge">Empfohlen</span></li>
+          <li>Jede weitere Stunde: <strong class="price-new">+ 60,00 €</strong></li>
           <li>(Preise zzgl. Fahrtkosten)</li>
         </ul>
       </div>
@@ -175,7 +185,7 @@
         <p>Da hier Personal und Miet-Equipment involviert sind, wird dieses Paket individuell kalkuliert.</p>
         <ul>
           <li>Preis: Individuelles Angebot auf Anfrage</li>
-          <li>Orientierungswert: Ab ca. <strong>1.500,00 €</strong></li>
+          <li>Orientierungswert: Ab ca. <strong class="price-new">1.500,00 €</strong></li>
         </ul>
       </div>
 
@@ -183,8 +193,8 @@
         <h2>Add-Ons</h2>
         <p><em>Optionale Erweiterungen für zusätzliche Individualisierung und Dokumentation</em></p>
         <ul>
-          <li>Custom Intro / Mashup: <strong>+ 50 €</strong></li>
-          <li>Live Set Recording: <strong>+ 30 €</strong> (MP3-Datei, nur privat, außer anders vereinbart)</li>
+          <li>Custom Intro / Mashup: <strong class="price-new">+ 50 €</strong></li>
+          <li>Live Set Recording: <strong class="price-new">+ 30 €</strong> (MP3-Datei, nur privat, außer anders vereinbart)</li>
           <li>Spontane Verlängerung (Overtime): Preis je nach Paket pro angefangener Stunde.</li>
         </ul>
       </div>
@@ -200,7 +210,7 @@
       <div class="package-box">
         <h2>Wichtige Hinweise zur Buchung</h2>
         <h3>Fahrtkosten</h3>
-        <p>Alle oben genannten Preise verstehen sich zuzüglich Fahrtkosten. Diese berechne ich ab meinem Standort (82362 Weilheim) mit <strong>einer Pauschale von 5,00€ pro angefangene 10 Kilometer</strong>.</p>
+        <p>Alle oben genannten Preise verstehen sich zuzüglich Fahrtkosten. Diese berechne ich ab meinem Standort (82362 Weilheim) mit <strong>einer Pauschale von <span class="price-new">5,00€</span> pro angefangene 10 Kilometer</strong>.</p>
 
         <h3>Technische Voraussetzungen</h3>
         <p>Damit am Abend alles reibungslos funktioniert (Strom, Platzbedarf, WLAN für Musikwünsche), habe ich eine kleine Checkliste erstellt. Bitte wirf vor der Buchung einen Blick darauf: <a class="social" href="technical-rider.html">Technical Rider &amp; Setup Guide</a></p>

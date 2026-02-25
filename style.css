@@ -2176,6 +2176,35 @@ a:focus{ outline:3px solid rgba(127,0,178,0.14); outline-offset:3px; border-radi
   }
 }
 
+/* Mobile drawer authoritative override: ensure full-height fixed panel */
+@media (max-width:720px){
+  .site-header .main-nav{
+    position:fixed !important;
+    top:0 !important;
+    right:0 !important;
+    bottom:0 !important;
+    left:auto !important;
+    width:min(100vw, 400px) !important;
+    height:100dvh !important;
+    max-height:100dvh !important;
+    padding:4.5rem 0.9rem 1.2rem !important;
+    transform:translateX(100%) !important;
+    opacity:0 !important;
+    visibility:hidden !important;
+    pointer-events:none !important;
+    overflow-y:auto !important;
+    border:none !important;
+    border-radius:0 !important;
+  }
+
+  .site-header .nav-toggle:checked ~ .main-nav{
+    transform:translateX(0) !important;
+    opacity:1 !important;
+    visibility:visible !important;
+    pointer-events:auto !important;
+  }
+}
+
 /* Hero/info sizing across 1080p, 1440p, 4K and mobile */
 body.page-home .hero-combined{
   --hero-media-width:min(100%, clamp(300px, 33vw, 640px));

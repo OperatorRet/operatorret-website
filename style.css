@@ -193,7 +193,8 @@ body.page-contact .main-nav a[href="contact.html"]{
 
   .site-header .desktop-submenu-panel{
     position:absolute;
-    right:0;
+    left:50%;
+    transform:translateX(-50%);
     top:calc(100% + 0.5rem);
     min-width:220px;
     padding:0.5rem;
@@ -205,6 +206,10 @@ body.page-contact .main-nav a[href="contact.html"]{
     gap:0.35rem;
     z-index:170;
   }
+
+  /* hide panel by default; only show when the details element is opened */
+  .site-header .desktop-submenu-panel{ display:none; }
+  .site-header .desktop-submenu[open] > .desktop-submenu-panel{ display:grid; }
 
   .site-header .desktop-submenu-panel a{
     display:block;
@@ -1866,6 +1871,26 @@ body.lightbox-open{ overflow:hidden; }
     min-width:0;
     font-size:0.72rem;
     padding:0.4rem 0.5rem;
+  }
+
+  /* Mobile: make theme toggle vertical and full-width for the drawer */
+  @media (max-width:720px){
+    .main-nav-drawer-tools .theme-mode-toggle-header{
+      display:flex;
+      flex-direction:column;
+      gap:0.45rem;
+      padding:0.35rem 0.25rem;
+      background:transparent;
+      border:0;
+    }
+
+    .main-nav-drawer-tools .theme-mode-btn{
+      display:block;
+      width:100%;
+      padding:0.6rem 0.7rem;
+      border-radius:10px;
+      text-align:center;
+    }
   }
 
   .nav-toggle:checked ~ .main-nav{

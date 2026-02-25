@@ -156,9 +156,6 @@ body.page-contact .main-nav a[href="contact.html"]{
   }
 
   .site-header .main-nav-secondary,
-  .site-header .main-nav-drawer-tools{
-    display:none !important;
-  }
 
   .site-header .desktop-submenu{
     display:block;

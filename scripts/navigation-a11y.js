@@ -32,6 +32,11 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       navToggle.checked = false;
+      mainNav.querySelectorAll('.drawer-submenu[open]').forEach((submenu) => {
+        if (submenu instanceof HTMLDetailsElement) {
+          submenu.open = false;
+        }
+      });
       setExpandedState();
     };
 

@@ -74,20 +74,13 @@ const setThemeMode = (mode) => {
   syncThemeToggles(appliedMode);
 };
 
-const mountHeaderThemeToggle = () => {
-  const headerInner = document.querySelector('.site-header .header-inner');
-  if (!(headerInner instanceof HTMLElement)) return;
-  if (headerInner.querySelector('.theme-mode-toggle-header')) return;
+const mountDrawerThemeToggle = () => {
+  const drawerTools = document.querySelector('.site-header .main-nav-drawer-tools');
+  if (!(drawerTools instanceof HTMLElement)) return;
+  if (drawerTools.querySelector('.theme-mode-toggle-header')) return;
 
   const toggle = createThemeToggle('header');
-  const headerButton = headerInner.querySelector('.header-book');
-
-  if (headerButton instanceof HTMLElement) {
-    headerInner.insertBefore(toggle, headerButton);
-    return;
-  }
-
-  headerInner.appendChild(toggle);
+  drawerTools.appendChild(toggle);
 };
 
 const mountFooterThemeToggle = () => {
@@ -139,7 +132,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       target.outerHTML = html;
     }
 
-    mountHeaderThemeToggle();
+    mountDrawerThemeToggle();
     mountFooterThemeToggle();
 
     const normalizePath = (value) => {
@@ -183,7 +176,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     document.dispatchEvent(new CustomEvent('siteHeaderLoaded'));
   } catch (_) {
-    mountHeaderThemeToggle();
+    mountDrawerThemeToggle();
     syncThemeToggles(getStoredThemeMode());
   }
 });

@@ -4,18 +4,26 @@
     <input id="nav-toggle" type="checkbox" class="nav-toggle" aria-label="Navigation öffnen oder schließen" aria-controls="main-navigation" aria-expanded="false" />
     <label for="nav-toggle" class="nav-toggle-label"><span></span><span></span><span></span><span class="sr-only">Menü öffnen oder schließen</span></label>
     <nav class="main-nav" id="main-navigation" aria-label="Hauptnavigation">
-      <ul>
+      <ul class="main-nav-primary">
         <li><a class="social" href="index.html">Home</a></li>
         <li><a class="social" href="leistungen.html">Leistungen</a></li>
         <li><a class="social" href="technik-setup.html">Setup</a></li>
-        <li><a class="social" href="wer-bin-ich.html">Q&A</a></li>
         <li><a class="social" href="technical-rider.html">Rider</a></li>
-        <li><a class="social" href="availability.html">Verfügbarkeit</a></li>
-        <li><a class="social" href="sets.html">Sets</a></li>
-        <li><a class="social" href="galerie.html">Galerie</a></li>
-        <li><a class="social" href="contact.html">Kontakt</a></li>
+        <li><a class="social" href="wer-bin-ich.html">Q&A</a></li>
       </ul>
+
+      <details class="drawer-submenu">
+        <summary>Mehr Seiten</summary>
+        <div class="drawer-submenu-panel">
+          <ul class="main-nav-secondary">
+            <li><a class="social" href="availability.html">Verfügbarkeit</a></li>
+            <li><a class="social" href="sets.html">Sets</a></li>
+            <li><a class="social" href="galerie.html">Galerie</a></li>
+            <li><a class="social" href="contact.html">Kontakt</a></li>
+          </ul>
+          <div class="main-nav-drawer-tools"></div>
+        </div>
+      </details>
     </nav>
-    <a class="btn btn-cta header-book" href="contact.html">Jetzt buchen</a>
   </div>
 </header>

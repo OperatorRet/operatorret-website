@@ -163,6 +163,12 @@ body.page-contact .main-nav a[href="contact.html"]{
     margin-left:0.4rem;
   }
 
+  /* hide secondary full-link list and drawer tools on desktop; use the desktop dropdown instead */
+  .site-header .main-nav-secondary,
+  .site-header .main-nav-drawer-tools{
+    display:none !important;
+  }
+
   .site-header .desktop-submenu > summary{
     list-style:none;
     cursor:pointer;

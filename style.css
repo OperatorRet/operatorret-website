@@ -118,7 +118,6 @@ body.page-setup .main-nav a[href="technik-setup.html"],
 body.page-qa .main-nav a[href="wer-bin-ich.html"],
 body.page-gallery .main-nav a[href="galerie.html"],
 body.page-availability .main-nav a[href="availability.html"],
-body.page-sets .main-nav a[href="sets.html"],
 body.page-contact .main-nav a[href="contact.html"]{
   color:var(--white);
   background: rgba(255,255,255,0.05);
@@ -701,7 +700,6 @@ p{ font-size:1rem; line-height:1.6; margin:0 0 1rem; }
 
 body.page-home #services .card,
 body.page-home #resources .card,
-body.page-home #home-sets .card,
 body.page-home #home-gallery .card,
 body.page-home #contact .contact-card{
   background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
@@ -712,14 +710,14 @@ body.page-home #contact .contact-card{
 
 body.page-home #services,
 body.page-home #resources,
-body.page-home #home-sets{
+body.page-home #home-gallery{
   position:relative;
   z-index:20;
 }
 
 body.page-home #services .card,
 body.page-home #resources .card,
-body.page-home #home-sets .card{
+body.page-home #home-gallery .card{
   transition: box-shadow .2s ease, transform .2s ease !important;
 }
 
@@ -727,8 +725,8 @@ body.page-home #services .card:hover,
 body.page-home #services .card:focus-within,
 body.page-home #resources .card:hover,
 body.page-home #resources .card:focus-within,
-body.page-home #home-sets .card:hover,
-body.page-home #home-sets .card:focus-within{
+body.page-home #home-gallery .card:hover,
+body.page-home #home-gallery .card:focus-within{
   transform: translateY(-6px) scale(1.01) !important;
   box-shadow: 0 22px 56px rgba(0,0,0,0.52) !important;
 }
@@ -2010,7 +2008,6 @@ a:focus{ outline:3px solid rgba(127,0,178,0.14); outline-offset:3px; border-radi
   body.page-home #services.container,
   body.page-home #resources.container,
   body.page-home #availability-home.container,
-  body.page-home #home-sets.container,
   body.page-home #home-gallery.container,
   body.page-home #contact.container{
     padding:2rem 1rem;
@@ -2058,7 +2055,6 @@ a:focus{ outline:3px solid rgba(127,0,178,0.14); outline-offset:3px; border-radi
   body.page-home #services.container,
   body.page-home #resources.container,
   body.page-home #availability-home.container,
-  body.page-home #home-sets.container,
   body.page-home #home-gallery.container,
   body.page-home #contact.container{
     padding-left:0.85rem;
@@ -2313,10 +2309,7 @@ body.page-home .right-portrait .portrait-wrap{
 body.page-home #services.container,
 body.page-home #resources.container,
 body.page-home #availability-home.container,
-body.page-home #home-sets.container,
-body.page-home #home-gallery.container,
-body.page-home #contact.container{
-  max-width:min(1280px, calc(100vw - 2.5rem));
+
 }
 
 @media (min-width:1920px){
@@ -2324,7 +2317,6 @@ body.page-home #contact.container{
   body.page-home #services.container,
   body.page-home #resources.container,
   body.page-home #availability-home.container,
-  body.page-home #home-sets.container,
   body.page-home #home-gallery.container,
   body.page-home #contact.container{
     max-width:1360px;
